@@ -28,6 +28,8 @@ class OfferTableViewCell: UITableViewCell {
     
     private var priceFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.locale = Locale(identifier: "ru_RU")
         formatter.maximumFractionDigits = 0
         return formatter
     }()
