@@ -12,13 +12,13 @@
         <!--Title-->
         <scene sceneID="aEa-D9-Etf">
             <objects>
-                <tableViewController id="6TO-yX-zam" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nwi-Jj-wJp">
+                <tableViewController id="6TO-yX-zam" customClass="OfferTableViewController" customModule="ProductDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="126" sectionHeaderHeight="18" sectionFooterHeight="18" id="nwi-Jj-wJp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="126" id="cFi-LI-cZr">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" rowHeight="126" id="cFi-LI-cZr" customClass="OfferTableViewCell" customModule="ProductDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="126"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cFi-LI-cZr" id="pbN-ac-TIi">
@@ -95,6 +95,15 @@
                                         <constraint firstItem="EJ1-YT-gnS" firstAttribute="centerY" secondItem="RDp-5O-fhK" secondAttribute="centerY" id="wzd-lV-Vic"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addToCartButton" destination="EJ1-YT-gnS" id="uEb-md-W8y"/>
+                                    <outlet property="discountLabel" destination="RDp-5O-fhK" id="wKg-ws-31v"/>
+                                    <outlet property="nameLabel" destination="AAf-7z-erS" id="tRa-97-CjL"/>
+                                    <outlet property="offerImageView" destination="kRA-8U-yAS" id="uQp-sE-f0N"/>
+                                    <outlet property="oldPriceLabel" destination="adO-tu-lVx" id="be5-l6-hiM"/>
+                                    <outlet property="priceLabel" destination="biO-TK-fEP" id="Pfv-9C-kLa"/>
+                                    <outlet property="sloganLabel" destination="IhW-BJ-dhy" id="Rc3-GW-BCw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

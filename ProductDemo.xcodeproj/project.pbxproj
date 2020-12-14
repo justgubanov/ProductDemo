@@ -13,6 +13,11 @@
 		FAAA6078258694D700EAACF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAA6076258694D700EAACF6 /* Main.storyboard */; };
 		FAAA607A258694E200EAACF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAA6079258694E200EAACF6 /* Assets.xcassets */; };
 		FAAA607D258694E200EAACF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAA607B258694E200EAACF6 /* LaunchScreen.storyboard */; };
+		FAAA608625878CFF00EAACF6 /* OfferTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA608525878CFF00EAACF6 /* OfferTableViewController.swift */; };
+		FAEB23F62587906800E76CF0 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB23F52587906800E76CF0 /* OfferTableViewCell.swift */; };
+		FAEB23FB2587CD3900E76CF0 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB23FA2587CD3900E76CF0 /* Offer.swift */; };
+		FAEB23FE2587CD5000E76CF0 /* OfferGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */; };
+		FAEB24022587CDAE00E76CF0 /* OfferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		FAAA6079258694E200EAACF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAAA607C258694E200EAACF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAAA607E258694E200EAACF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAAA608525878CFF00EAACF6 /* OfferTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableViewController.swift; sourceTree = "<group>"; };
+		FAEB23F52587906800E76CF0 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		FAEB23FA2587CD3900E76CF0 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferGroup.swift; sourceTree = "<group>"; };
+		FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,12 +69,41 @@
 				FAAA6070258694D700EAACF6 /* AppDelegate.swift */,
 				FAAA6072258694D700EAACF6 /* SceneDelegate.swift */,
 				FAAA6074258694D700EAACF6 /* ViewController.swift */,
+				FAAA608525878CFF00EAACF6 /* OfferTableViewController.swift */,
+				FAEB24042587CE3900E76CF0 /* View */,
+				FAEB24002587CD9600E76CF0 /* Interactor */,
+				FAEB23F92587CD2700E76CF0 /* Entity */,
 				FAAA6076258694D700EAACF6 /* Main.storyboard */,
 				FAAA6079258694E200EAACF6 /* Assets.xcassets */,
 				FAAA607B258694E200EAACF6 /* LaunchScreen.storyboard */,
 				FAAA607E258694E200EAACF6 /* Info.plist */,
 			);
 			path = ProductDemo;
+			sourceTree = "<group>";
+		};
+		FAEB23F92587CD2700E76CF0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB23FA2587CD3900E76CF0 /* Offer.swift */,
+				FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		FAEB24002587CD9600E76CF0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FAEB24042587CE3900E76CF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB23F52587906800E76CF0 /* OfferTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEB23FB2587CD3900E76CF0 /* Offer.swift in Sources */,
 				FAAA6075258694D700EAACF6 /* ViewController.swift in Sources */,
+				FAEB23F62587906800E76CF0 /* OfferTableViewCell.swift in Sources */,
+				FAEB24022587CDAE00E76CF0 /* OfferProvider.swift in Sources */,
 				FAAA6071258694D700EAACF6 /* AppDelegate.swift in Sources */,
+				FAAA608625878CFF00EAACF6 /* OfferTableViewController.swift in Sources */,
+				FAEB23FE2587CD5000E76CF0 /* OfferGroup.swift in Sources */,
 				FAAA6073258694D700EAACF6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
