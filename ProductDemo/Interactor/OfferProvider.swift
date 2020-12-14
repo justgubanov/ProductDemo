@@ -7,22 +7,62 @@
 
 import Foundation
 
+protocol OfferProviderDelegate: class {
+    
+    func offerProviderDidFailed()
+    func offerProviderDidReceiveOffers(_ offers: [Offer])
+}
+
 final class OfferProvider {
     
-    func getGroupedOffers() -> [OfferGroup] {
-        var groups = [OfferGroup]()
+    private lazy var requester: DataRequester = {
+        let requester = DataRequester()
+        requester.delegate = self
+        return requester
+    }()
+    
+    weak var delegate: OfferProviderDelegate?
+    
+    func getGroupedOffers() {
+        requester.requestData(type: .offers)
+    }
+    
+    private func makeOffers(from data: Data?) -> [Offer] {
+        let offers = [Offer]()
         
-        let offers = OfferGroup(name: "Offers",
-                                offers: [Offer(title: "Offer 1", slogan: "Lores", price: 50, oldPrice: 100),
-                                         Offer(title: "Offer 2", slogan: "Impsum", price: 20)])
+        guard let data = data,
+              let response = try? JSONDecoder().decode(Array<OffersResponse>.self, from: data) else {
+            return offers
+        }
         
-        let sales = OfferGroup(name: "Sales",
-                               offers: [Offer(title: "Sale 1", slogan: "Lores", price: 15, oldPrice: 30),
-                                        Offer(title: "Sale 2", slogan: "Impsum", price: 11),
-                                        Offer(title: "Sale 3", slogan: "Lores", price: 50)])
-        
-        groups.append(offers)
-        groups.append(sales)
-        return groups
+        return response.map { offerResponse in
+            if let discount = offerResponse.discount, let price = offerResponse.price {
+                let currentPrice = price * discount
+                
+                return Offer(image: nil,
+                             title: offerResponse.name,
+                             slogan: offerResponse.desc,
+                             price: currentPrice,
+                             oldPrice: offerResponse.price)
+            } else {
+                return Offer(image: nil,
+                             title: offerResponse.name,
+                             slogan: offerResponse.desc,
+                             price: offerResponse.price,
+                             oldPrice: nil)
+            }
+        }
+    }
+}
+
+extension OfferProvider: DataRequesterDelegate {
+    
+    func dataRequesterDidFail() {
+        delegate?.offerProviderDidFailed()
+    }
+    
+    func dataRequesterDidReceiveData(_ data: Data) {
+        let offers = makeOffers(from: data)
+        delegate?.offerProviderDidReceiveOffers(offers)
     }
 }

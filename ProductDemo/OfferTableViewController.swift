@@ -11,11 +11,18 @@ class OfferTableViewController: UITableViewController {
     
     private let cellReuseIdentifier = "reuseIdentifier"
     
-    private var offerGroups = OfferProvider().getGroupedOffers()
+    private lazy var offerProvider: OfferProvider = {
+        let provider = OfferProvider()
+        provider.delegate = self
+        return provider
+    }()
+    
+    private var offerGroups = [OfferGroup]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        offerProvider.getGroupedOffers()
         navigationItem.titleView = UISearchBar()
     }
     
@@ -47,4 +54,18 @@ class OfferTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {}
+}
+
+extension OfferTableViewController: OfferProviderDelegate {
+    
+    func offerProviderDidReceiveOffers(_ offers: [Offer]) {
+        DispatchQueue.main.async { [weak self] in
+            self?.offerGroups = [OfferGroup(name: "Response", offers: offers)]
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func offerProviderDidFailed() {
+        
+    }
 }

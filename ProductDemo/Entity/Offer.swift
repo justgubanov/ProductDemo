@@ -11,12 +11,13 @@ struct Offer {
     
     var image: UIImage?
     var title: String
-    var slogan: String
-    var price: Double
+    var slogan: String?
+    var price: Double?
     var oldPrice: Double?
     
     var discount: Double? {
-        guard let oldPrice = oldPrice else {
+        guard let oldPrice = oldPrice,
+              let price = price else {
             return nil
         }
         return (price / oldPrice) - 1

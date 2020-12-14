@@ -18,6 +18,8 @@
 		FAEB23FB2587CD3900E76CF0 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB23FA2587CD3900E76CF0 /* Offer.swift */; };
 		FAEB23FE2587CD5000E76CF0 /* OfferGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */; };
 		FAEB24022587CDAE00E76CF0 /* OfferProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */; };
+		FAEB24082587EED500E76CF0 /* DataRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB24072587EED400E76CF0 /* DataRequester.swift */; };
+		FAEB240D2587F4A200E76CF0 /* OffersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEB240C2587F4A200E76CF0 /* OffersResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		FAEB23FA2587CD3900E76CF0 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferGroup.swift; sourceTree = "<group>"; };
 		FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferProvider.swift; sourceTree = "<group>"; };
+		FAEB24072587EED400E76CF0 /* DataRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequester.swift; sourceTree = "<group>"; };
+		FAEB240C2587F4A200E76CF0 /* OffersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 			children = (
 				FAEB23FA2587CD3900E76CF0 /* Offer.swift */,
 				FAEB23FD2587CD5000E76CF0 /* OfferGroup.swift */,
+				FAEB240B2587F49600E76CF0 /* NetworkingResponse */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -94,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FAEB24012587CDAE00E76CF0 /* OfferProvider.swift */,
+				FAEB24072587EED400E76CF0 /* DataRequester.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -104,6 +110,14 @@
 				FAEB23F52587906800E76CF0 /* OfferTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FAEB240B2587F49600E76CF0 /* NetworkingResponse */ = {
+			isa = PBXGroup;
+			children = (
+				FAEB240C2587F4A200E76CF0 /* OffersResponse.swift */,
+			);
+			path = NetworkingResponse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAEB23FB2587CD3900E76CF0 /* Offer.swift in Sources */,
+				FAEB240D2587F4A200E76CF0 /* OffersResponse.swift in Sources */,
 				FAAA6075258694D700EAACF6 /* ViewController.swift in Sources */,
 				FAEB23F62587906800E76CF0 /* OfferTableViewCell.swift in Sources */,
 				FAEB24022587CDAE00E76CF0 /* OfferProvider.swift in Sources */,
 				FAAA6071258694D700EAACF6 /* AppDelegate.swift in Sources */,
+				FAEB24082587EED500E76CF0 /* DataRequester.swift in Sources */,
 				FAAA608625878CFF00EAACF6 /* OfferTableViewController.swift in Sources */,
 				FAEB23FE2587CD5000E76CF0 /* OfferGroup.swift in Sources */,
 				FAAA6073258694D700EAACF6 /* SceneDelegate.swift in Sources */,
