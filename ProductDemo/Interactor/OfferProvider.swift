@@ -5,7 +5,7 @@
 //  Created by Александр Губанов on 14.12.2020.
 //
 
-import Foundation
+import UIKit
 
 protocol OfferProviderDelegate: class {
     
@@ -35,8 +35,9 @@ final class OfferProvider {
         var groups = [String : [Offer]]()
         
         for offerResponse in response {
+            let image = loadImage(for: offerResponse)
             let (price, oldPrice) = getPrices(from: offerResponse)
-            let offer = Offer(image: nil,
+            let offer = Offer(image: image,
                               title: offerResponse.name,
                               slogan: offerResponse.desc,
                               price: price,
@@ -66,6 +67,16 @@ final class OfferProvider {
         } else {
             return (price, nil)
         }
+    }
+    
+    func loadImage(for response: OfferResponse) -> UIImage? {
+        guard let urlString = response.image,
+              let imageURL = URL(string: urlString),
+              let data = try? Data(contentsOf: imageURL),
+              let image = UIImage(data: data) else {
+            return nil
+        }
+        return image
     }
 }
 
