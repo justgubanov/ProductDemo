@@ -11,6 +11,7 @@
 		FA89EC2E25894DB400318DF3 /* StrikethroughLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89EC2D25894DB400318DF3 /* StrikethroughLabel.swift */; };
 		FA89EC31258953DA00318DF3 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89EC30258953DA00318DF3 /* RoundedImageView.swift */; };
 		FA89EC342589617300318DF3 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89EC332589617300318DF3 /* RoundedButton.swift */; };
+		FA89EC3925896AB200318DF3 /* ClosingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89EC3825896AB200318DF3 /* ClosingViewController.swift */; };
 		FAAA6071258694D700EAACF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA6070258694D700EAACF6 /* AppDelegate.swift */; };
 		FAAA6073258694D700EAACF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAA6072258694D700EAACF6 /* SceneDelegate.swift */; };
 		FAAA6078258694D700EAACF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAA6076258694D700EAACF6 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		FA89EC2D25894DB400318DF3 /* StrikethroughLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikethroughLabel.swift; sourceTree = "<group>"; };
 		FA89EC30258953DA00318DF3 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		FA89EC332589617300318DF3 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		FA89EC3825896AB200318DF3 /* ClosingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClosingViewController.swift; path = View/ClosingViewController.swift; sourceTree = "<group>"; };
 		FAAA606D258694D700EAACF6 /* ProductDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAA6070258694D700EAACF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAA6072258694D700EAACF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				FAEB24002587CD9600E76CF0 /* Interactor */,
 				FAEB23F92587CD2700E76CF0 /* Entity */,
 				FAAA6076258694D700EAACF6 /* Main.storyboard */,
+				FA89EC3825896AB200318DF3 /* ClosingViewController.swift */,
 				FAAA6079258694E200EAACF6 /* Assets.xcassets */,
 				FAAA607B258694E200EAACF6 /* LaunchScreen.storyboard */,
 				FAAA607E258694E200EAACF6 /* Info.plist */,
@@ -201,6 +204,7 @@
 			files = (
 				FAEB23FB2587CD3900E76CF0 /* Offer.swift in Sources */,
 				FAEB240D2587F4A200E76CF0 /* OfferResponse.swift in Sources */,
+				FA89EC3925896AB200318DF3 /* ClosingViewController.swift in Sources */,
 				FAEB23F62587906800E76CF0 /* OfferTableViewCell.swift in Sources */,
 				FAEB24022587CDAE00E76CF0 /* OfferProvider.swift in Sources */,
 				FA89EC2E25894DB400318DF3 /* StrikethroughLabel.swift in Sources */,
