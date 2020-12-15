@@ -69,7 +69,7 @@ final class OfferProvider {
         }
     }
     
-    func loadImage(for response: OfferResponse) -> UIImage? {
+    private func loadImage(for response: OfferResponse) -> UIImage? {
         guard let urlString = response.image,
               let imageURL = URL(string: urlString),
               let data = try? Data(contentsOf: imageURL),
