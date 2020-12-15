@@ -10,7 +10,7 @@ import Foundation
 protocol OfferProviderDelegate: class {
     
     func offerProviderDidFailed()
-    func offerProviderDidReceiveOffers(_ offers: [Offer])
+    func offerProviderDidReceiveOfferGroups(_ offerGroups: [OfferGroup])
 }
 
 final class OfferProvider {
@@ -27,30 +27,44 @@ final class OfferProvider {
         requester.requestData(type: .offers)
     }
     
-    private func makeOffers(from data: Data?) -> [Offer] {
-        let offers = [Offer]()
-        
+    private func makeOfferGroups(from data: Data?) -> [OfferGroup] {
         guard let data = data,
-              let response = try? JSONDecoder().decode(Array<OffersResponse>.self, from: data) else {
-            return offers
+              let response = try? JSONDecoder().decode(Array<OfferResponse>.self, from: data) else {
+            return []
+        }
+        var groups = [String : [Offer]]()
+        
+        for offerResponse in response {
+            let (price, oldPrice) = getPrices(from: offerResponse)
+            let offer = Offer(image: nil,
+                              title: offerResponse.name,
+                              slogan: offerResponse.desc,
+                              price: price,
+                              oldPrice: oldPrice)
+
+            let groupName = offerResponse.groupName
+            
+            if var group = groups[groupName] {
+                group.append(offer)
+                groups[groupName] = group
+            } else {
+                groups[groupName] = [offer]
+            }
+        }
+        return groups.map {
+            OfferGroup(name: $0.key, offers: $0.value)
+        }
+    }
+    
+    private func getPrices(from response: OfferResponse) -> (price: Double?, oldPrice: Double?) {
+        guard let price = response.price else {
+            return (nil, nil)
         }
         
-        return response.map { offerResponse in
-            if let discount = offerResponse.discount, let price = offerResponse.price {
-                let currentPrice = price * discount
-                
-                return Offer(image: nil,
-                             title: offerResponse.name,
-                             slogan: offerResponse.desc,
-                             price: currentPrice,
-                             oldPrice: offerResponse.price)
-            } else {
-                return Offer(image: nil,
-                             title: offerResponse.name,
-                             slogan: offerResponse.desc,
-                             price: offerResponse.price,
-                             oldPrice: nil)
-            }
+        if let discount = response.discount {
+            return (price * discount, price)
+        } else {
+            return (price, nil)
         }
     }
 }
@@ -62,7 +76,7 @@ extension OfferProvider: DataRequesterDelegate {
     }
     
     func dataRequesterDidReceiveData(_ data: Data) {
-        let offers = makeOffers(from: data)
-        delegate?.offerProviderDidReceiveOffers(offers)
+        let offerGroups = makeOfferGroups(from: data)
+        delegate?.offerProviderDidReceiveOfferGroups(offerGroups)
     }
 }

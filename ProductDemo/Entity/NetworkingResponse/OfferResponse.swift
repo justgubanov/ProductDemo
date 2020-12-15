@@ -1,5 +1,5 @@
 //
-//  OffersResponse.swift
+//  OfferResponse.swift
 //  ProductDemo
 //
 //  Created by Александр Губанов on 14.12.2020.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OffersResponse: Codable {
+struct OfferResponse: Codable {
     
     enum OfferType: String, Codable {
         

@@ -58,9 +58,9 @@ class OfferTableViewController: UITableViewController {
 
 extension OfferTableViewController: OfferProviderDelegate {
     
-    func offerProviderDidReceiveOffers(_ offers: [Offer]) {
+    func offerProviderDidReceiveOfferGroups(_ offerGroups: [OfferGroup]) {
         DispatchQueue.main.async { [weak self] in
-            self?.offerGroups = [OfferGroup(name: "Response", offers: offers)]
+            self?.offerGroups = offerGroups
             self?.tableView.reloadData()
         }
     }
